@@ -1,0 +1,33 @@
+&gpioe {
+    status = "okay";
+};
+
+/ {
+
+    aliases {
+        // Sensores IR
+        sensor-esq = &sensor_esq_node;
+        sensor-dir = &sensor_dir_node;
+
+    };
+
+    sensor_esq: sensor_esq {
+        compatible = "gpio-keys";
+
+
+        sensor_esq_node: sensor_esq_node {
+            gpios = <&gpioe 20 GPIO_ACTIVE_HIGH>;   // ajuste pino
+            label = "Sensor IR Esquerdo";
+        };
+    };
+    
+    sensor_dir: sensor_dir{
+        compatible = "gpio-keys";
+
+
+        sensor_dir_node: sensor_dir_node {
+            gpios = <&gpioe 5 GPIO_ACTIVE_HIGH>;   // ajuste pino
+            label = "Sensor IR Direito";
+        };
+    };
+};
